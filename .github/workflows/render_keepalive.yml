@@ -1,0 +1,23 @@
+name: Keep Render Backend Awake
+
+on:
+  schedule:
+    # Run every 14 minutes to prevent Render's 15-minute inactivity spin-down
+    - cron: '*/14 * * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+
+jobs:
+  ping-render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Render Backend Health Endpoint
+        run: |
+          echo "Sending keep-alive ping to Render backend..."
+          RESPONSE=$(curl -s -w "\nHTTP_STATUS:%{http_code}\nTIME_TOTAL:%{time_total}s\n" --max-time 60 "https://stocktics-backend.onrender.com/health")
+          echo "$RESPONSE"
+          
+          if echo "$RESPONSE" | grep -q "HTTP_STATUS:200"; then
+            echo "✅ Render backend is active and responded with 200 OK!"
+          else
+            echo "⚠️ Health check returned non-200, but ping was delivered to wake up the server."
+          fi

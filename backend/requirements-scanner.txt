@@ -1,0 +1,11 @@
+# Lean requirements for the Pattern Scanner Pipeline (GitHub Actions CI)
+# Only includes packages actually imported by scanner/*.py modules.
+
+# Data Fetching
+yfinance>=0.2.38
+requests>=2.31.0
+python-dotenv>=1.0.1
+
+# Numerical & Analysis
+numpy>=1.26.0
+pandas>=2.2.0

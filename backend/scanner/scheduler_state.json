@@ -1,0 +1,15 @@
+{
+  "last_scanned_trading_date": null,
+  "last_run_timestamp": "2026-10-07T17:53:14.346594Z",
+  "last_run_duration_seconds": 13.8,
+  "last_run_status": "SUCCESS",
+  "last_summary": {
+    "status": "success",
+    "market": "US",
+    "securities_scanned": 5,
+    "patterns_evaluated": 33,
+    "total_events_detected": 12,
+    "duration_seconds": 13.8
+  },
+  "total_runs_completed": 1
+}

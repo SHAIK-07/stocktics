@@ -1,0 +1,98 @@
+# Android & Gradle
+.gradle/
+build/
+app/build/
+*/build/
+local.properties
+*.apk
+*.ap_
+*.aab
+.kotlin/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Environment variables & secrets
+.env
+*.env
+*.env.local
+*.env.*.local
+
+# Database
+*.sqlite
+*.sqlite3
+*.db
+
+# Model checkpoints & cache
+artifacts/models/
+cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.iml
+.navigation/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Frontend & Node
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+*.log
+
+# Testing & Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+
+# Signing keys & credentials (never commit)
+*.jks
+*.keystore
+keystore.properties
+google-services.json
+GoogleService-Info.plist
+*.pem
+*.key
+*.p12
+service-account*.json
+
+# Keep env templates trackable
+!.env.example
+
+# Claude Code local settings
+.claude/settings.local.json

@@ -1,0 +1,44 @@
+name: Stocktics Daily Pattern Scanner Pipeline
+
+on:
+  schedule:
+    # 1. Indian Market Close (NSE closes at 3:30 PM IST -> 10:00 AM UTC). Run at 10:30 UTC (4:00 PM IST) Mon-Fri:
+    - cron: '30 10 * * 1-5'
+    # 2. US Market Close (NYSE/NASDAQ closes at 4:00 PM EST -> 21:00 UTC). Run at 21:30 UTC (5:30 PM EST) Mon-Fri:
+    - cron: '30 21 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      market:
+        description: 'Market to scan (IN, US, or ALL)'
+        required: false
+        default: 'ALL'
+
+jobs:
+  run-scanner:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r backend/requirements-scanner.txt
+
+      - name: Run Pattern Scanner Pipeline
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          MARKET="${{ github.event.inputs.market || 'ALL' }}"
+          echo "Triggering Stocktics Pattern Scanner Pipeline for market: $MARKET"
+          python -m backend.scanner.pipeline --market "$MARKET"

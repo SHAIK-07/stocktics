@@ -1,0 +1,25 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <!-- Wipro Multi-color Brand Motif -->
+    <path
+        android:fillColor="#006699"
+        android:pathData="M12,24a4,4 0 1,0 8,0a4,4 0 1,0 -8,0" />
+    <path
+        android:fillColor="#009933"
+        android:pathData="M24,14a4,4 0 1,0 8,0a4,4 0 1,0 -8,0" />
+    <path
+        android:fillColor="#FF6600"
+        android:pathData="M28,24a4,4 0 1,0 8,0a4,4 0 1,0 -8,0" />
+    <path
+        android:fillColor="#CC0033"
+        android:pathData="M20,34a4,4 0 1,0 8,0a4,4 0 1,0 -8,0" />
+    <path
+        android:fillColor="#660099"
+        android:pathData="M14,16a3,3 0 1,0 6,0a3,3 0 1,0 -6,0" />
+    <path
+        android:fillColor="#00AEEF"
+        android:pathData="M30,32a3,3 0 1,0 6,0a3,3 0 1,0 -6,0" />
+</vector>
